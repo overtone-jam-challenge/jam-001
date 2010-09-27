@@ -1,0 +1,3 @@
+[submodule "checkouts/overtone"]
+	path = checkouts/overtone
+	url = git://github.com/overtone/overtone.git

@@ -1,4 +1,4 @@
-# jam-challenge-001: non-cyclic baseline
+# Jam Challenge #001: non-cyclic baseline
 
 ## Prerequisites
 

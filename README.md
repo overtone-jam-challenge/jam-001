@@ -1,5 +1,7 @@
 # Jam Challenge #001: non-cyclic baseline
 
+Turn this boring, repetitive baseline into something more interesting.
+
 ## Prerequisites
 
 * lein 1.3.x (http://github.com/technomancy/leiningen)
@@ -9,7 +11,7 @@
 
 ## Setup
 
-Clone this repo (or clone your own fork of it if you use Github) and run
+Clone this repo (or clone your own fork of it if you use Github) and run:
 
     ./init-jam-challenge
 

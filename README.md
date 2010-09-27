@@ -9,16 +9,16 @@
 
 ## Setup
 
-Clone this repo (or clone your own fork of it if you use Github)
+Clone this repo (or clone your own fork of it if you use Github) and run
 
-run ./init-jam-challenge
+    ./init-jam-challenge
 
 ## Initial Run
 
 Obviously use whatever developing tools you're used to. If you just want to test that you can produce sound, lein repl will work for you:
 
-lein repl
-(use 'jam-challenge-001.core)
+    lein repl
+    (use 'jam-challenge-001.core)
 
 ## License
 

@@ -22,6 +22,6 @@ Obviously use whatever developing tools you're used to. If you just want to test
 
 ## License
 
-Copyright (C) 2010 FIXME
+Copyright (C) 2010 Jeff Rose & Sam Aaron
 
 Distributed under the Eclipse Public License, the same as Clojure.

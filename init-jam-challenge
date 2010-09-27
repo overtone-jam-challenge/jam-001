@@ -7,14 +7,17 @@ echo ""
 echo "\033[33mPulling this Jam's deps...\033[0m"
 lein deps
 
+echo ""
 echo "\033[33mPulling in Overtone as a checkout for your curious perusal...\033[0m"
 git submodule init
 git submodule update
 
+echo ""
 echo "\033[33mPulling Overtone's deps...\033[0m"
 cd checkouts/overtone
 lein deps
 
+echo ""
 echo "\033[33mMerging deps...\033[0m"
 cp lib/* ../../lib/
 

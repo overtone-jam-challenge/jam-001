@@ -17,9 +17,9 @@
 
 (defn bass-player [beat notes vels durs]
   (at (metro beat)
-      (bass (first notes))
+      (bass (first notes)
             (first vels)
-            (first durs))
+            (first durs)))
 
   (apply-at #'bass-player
             (metro (inc beat))
@@ -29,7 +29,7 @@
             (next durs)))
 
 (def b-notes [40 40 43 45])
-(def b-vels  [0.4 0.3 0.3 0.4])
+(def b-vels  [0.9 0.1 0.3 0.4])
 (def b-durs  [0.5 0.1 0.4 0.5])
 
 (bass-player (metro)

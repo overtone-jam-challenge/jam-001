@@ -13,7 +13,7 @@
 
 ;(bass)
 
-(def metro (metronome 100))
+(def metro (metronome 200))
 
 (defn bass-player [beat notes vels durs]
   (at (metro beat)
@@ -32,9 +32,23 @@
 (def b-vels  [0.9 0.1 0.3 0.4])
 (def b-durs  [0.5 0.1 0.4 0.5])
 
-(bass-player (metro)
-             (cycle b-notes)
-             (cycle b-vels)
-             (cycle b-durs))
+;(bass-player (metro)
+;             (cycle b-notes)
+;             (cycle b-vels)
+;             (cycle b-durs))
 
+(def myscale (vector 44 46 47 49 51 52 55 56))
+; redefine myscale while logistic-seq is running to change the notes used
+;
+(defn logistic-seq [ beat r x ]
+  ; Logistic sequence generates chaos using the formula
+  ; x(n+1)=x(n)r(1-x(n))
+  ; 3.53 < r < 4 will cause chaos
+ (let [ new-x (* r x (- 1 x))
+       ; next line converts x (which is 0 < x < 1) into notes
+       note (nth myscale (int (* (count myscale) x)))]
+   (at (metro beat) (bass note))
+   (apply-at #'logistic-seq (metro (inc beat))
+                            (inc beat) r new-x )))
 
+(logistic-seq (metro) 3.88 0.5 )

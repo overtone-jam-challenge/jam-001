@@ -49,6 +49,6 @@
        note (nth myscale (int (* (count myscale) x)))]
    (at (metro beat) (bass note))
    (apply-at #'logistic-seq (metro (inc beat))
-                            (inc beat) r new-x )))
+                            [(inc beat) r new-x] )))
 
 (logistic-seq (metro) 3.88 0.5 )

@@ -1,4 +1,4 @@
-# Jam Challenge #001: non-cyclic baseline
+# Jam Challenge #001: non-cyclic baseline with added chaos
 
 Turn this boring, repetitive baseline into something more interesting.
 

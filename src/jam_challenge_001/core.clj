@@ -13,28 +13,26 @@
 
 ;(bass)
 
-(def metro (metronome 100))
+(def metro (metronome 400))
+; (metro :bpm 600)
 
-(defn bass-player [beat notes vels durs]
-  (at (metro beat)
-      (bass (first notes)
-            (first vels)
-            (first durs)))
+(def myscale (vector 44 46 47 49 51 52 55 56))
+; redefine myscale while logistic-seq is running to change the notes used
 
-  (apply-at #'bass-player
-            (metro (inc beat))
-            (inc beat)
-            (next notes)
-            (next vels)
-            (next durs)))
+(def r 3.9)
+; redefine r to change the character of the chaos. Outside the range 3.53 < r < 4 
+; you will not get chaos. You may get alternation between 2 vals or a constant value
+;
 
-(def b-notes [40 40 43 45])
-(def b-vels  [0.9 0.1 0.3 0.4])
-(def b-durs  [0.5 0.1 0.4 0.5])
+(defn logistic-seq [ beat x ]
+  ; Logistic sequence generates chaos using the formula
+  ; x(n+1)=x(n)r(1-x(n))
+  ; 3.53 < r < 4 will cause chaos
+ (let [ new-x (* r x (- 1 x))
+       ; next line converts x (which is 0 < x < 1) into notes
+       note (nth myscale (int (* (count myscale) x)))]
+   (at (metro beat) (bass note))
+   (apply-at #'logistic-seq (metro (inc beat))
+                            [(inc beat) new-x] )))
 
-(bass-player (metro)
-             (cycle b-notes)
-             (cycle b-vels)
-             (cycle b-durs))
-
-
+(logistic-seq (metro) 0.5 )
